@@ -61,9 +61,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+#===== 前端 =====#
 # 前端框架
 gem 'bootstrap-sass', '~> 3.4'
 gem 'jquery-rails', '~> 4.3'
+# 图标 icon
+##让旧版本图标生效，在 application.thml.erb 添加 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+gem 'font-awesome-sass', '~> 5.8'
 
+#===== 后端 =====#
 # 注册登录
 gem 'devise', '~> 4.6'
