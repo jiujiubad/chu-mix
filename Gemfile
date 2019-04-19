@@ -64,3 +64,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # 前端框架
 gem 'bootstrap-sass', '~> 3.4'
 gem 'jquery-rails', '~> 4.3'
+
+# 注册登录
+gem 'devise', '~> 4.6'
