@@ -1,0 +1,16 @@
+<script>
+  // 实现加载 html 完成后再执行 function
+  $(document).ready(function () {
+    $("#my-click").click(function(){
+      $("#foo").html('<h1>zoo</h1>');
+    })
+  })
+</script>
+
+<p>
+  <a id="my-click">Click Me</a>
+</p>
+
+<div id="foo" style="border: 1px solid red;">
+  <p>bar</p>
+</div>
