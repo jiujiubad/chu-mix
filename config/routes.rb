@@ -8,5 +8,10 @@ Rails.application.routes.draw do
   get '/jquery-4', to: 'pages#jquery_4'
   get '/jquery-5', to: 'pages#jquery_5'
 
-  resources :posts
+  resources :posts do
+    member do
+      post "like", to: "posts#like"
+      post "unlike", to: "posts#unlike"
+    end
+  end
 end

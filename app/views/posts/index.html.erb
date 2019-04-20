@@ -1,9 +1,9 @@
 <%= form_with model: Post.new, remote: true do |f| %>
   <div class="form-group">
-    <%= f.text_area :content, :class => "form-control" %>
+    <%= f.text_area :content, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.submit :class => "btn btn-primary" %>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
 
