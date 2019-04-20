@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
   before_action :set_post, only: [:like, :unlike]
+  # skip_before_action :verify_authenticity_token
 
   def index
     @posts = Post.order("id DESC").all # 新文章放前面
@@ -10,14 +11,12 @@ class PostsController < ApplicationController
     @post      = Post.new(post_params)
     @post.user = current_user
     @post.save
-    # redirect_to posts_path
   end
 
   def destroy
     @post = current_user.posts.find(params[:id]) # 只能删除自己的文章
     @post.destroy
-    # redirect_to posts_path
-    # render :js => "alert('ok');"
+    render json: { id: @post.id }
   end
 
   def like
@@ -27,7 +26,7 @@ class PostsController < ApplicationController
   end
 
   def unlike
-    like  = @post.find_like(current_user)
+    like = @post.find_like(current_user)
     like.destroy
     render :like
   end
