@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get '/jquery-3', to: 'pages#jquery_3'
   get '/jquery-4', to: 'pages#jquery_4'
   get '/jquery-5', to: 'pages#jquery_5'
+
+  resources :posts
 end

@@ -72,3 +72,5 @@ gem 'font-awesome-sass', '~> 5.8'
 #===== 后端 =====#
 # 注册登录
 gem 'devise', '~> 4.6'
+# 假数据
+gem 'faker', '~> 1.9'

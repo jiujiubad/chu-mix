@@ -12,6 +12,7 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require bootstrap-sprockets
 //= require bootstrap/dropdown
 //= require bootstrap/alert
 //= require activestorage
