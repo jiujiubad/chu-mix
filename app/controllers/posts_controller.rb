@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
-  before_action :set_post, only: [:like, :unlike]
-  # skip_before_action :verify_authenticity_token
+  before_action :set_post, only: [:like, :unlike, :toggle_flag]
 
   def index
     @posts = Post.order("id DESC").limit(10)
@@ -36,6 +35,16 @@ class PostsController < ApplicationController
     like = @post.find_like(current_user)
     like.destroy
     render :like
+  end
+
+  def toggle_flag
+    if @post.flag_at
+      @post.flag_at = nil
+    else
+      @post.flag_at = Time.now
+    end
+    @post.save!
+    render json: { message: "ok", flag_at: @post.flag_at, id: @post.id }
   end
 
   protected

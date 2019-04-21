@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     member do
       post "like", to: "posts#like"
       post "unlike", to: "posts#unlike"
+      post "toggle_flag", to: "posts#toggle_flag"
     end
   end
 end

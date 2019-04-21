@@ -7,7 +7,7 @@ namespace :post do
   ## Ajax交互式网页应用-文章点赞网
   task create_users_and_posts: :environment do
     puts "Start create_users_and_posts"
-    User.create!(email: "chu@example.com", password: "chu@example.com")
+    User.create!(email: "chu@example.com", password: "chu@example.com", role: "admin")
 
     10.times do
       User.create!(email: Faker::Internet.email, password: Faker::Internet.password(8))
