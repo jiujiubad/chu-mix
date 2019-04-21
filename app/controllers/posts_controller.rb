@@ -4,7 +4,14 @@ class PostsController < ApplicationController
   # skip_before_action :verify_authenticity_token
 
   def index
-    @posts = Post.order("id DESC").all # 新文章放前面
+    @posts = Post.order("id DESC").limit(10)
+    if params[:max_id]
+      @posts = @posts.where("id < ?", params[:max_id])
+    end
+    respond_to do |format|
+      format.html # 如果客户端要求 HTML，则回传 index.html.erb
+      format.js # 如果客户端要求 JavaScript，回传 index.js.erb
+    end
   end
 
   def create

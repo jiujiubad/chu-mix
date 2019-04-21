@@ -27,9 +27,27 @@
       url: url,
       method: 'DELETE',
       dataType: 'json', // 要求服务器回传 json
-      success: function(data) {   // data 就是服务器回传的 JSON 资料
+      success: function (data) {   // data 就是服务器回传的 JSON 资料
         $("#post-" + data["id"]).remove();
       }
     })
+  })
+
+  //2.文章无限滚动
+  var current_post_id = <%= @posts.last.id %>; // 初始化变量：每个分页最后一篇文章的 id，在 index.js.erb 中改变变量
+  var post_bottom_id = <%= Post.first.id %>;   // 底部文章的 id
+  $(window).scroll(function () {               // 滚动事件
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {// 当滚到最下面的时候
+      var url = "/posts?max_id=" + current_post_id; // 传参给 controller
+      if (current_post_id > post_bottom_id) {
+        $.ajax({
+          method: "GET",
+          url: url,
+          dataType: "script"
+        })
+      } else {
+        console.log("data ended")
+      }
+    }
   })
 </script>

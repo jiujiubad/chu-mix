@@ -13,7 +13,7 @@ namespace :post do
       User.create!(email: Faker::Internet.email, password: Faker::Internet.password(8))
     end
 
-    50.times do
+    100.times do
       Post.create!( content: Faker::Lorem.paragraph, user_id: User.all.sample.id )
     end
   end

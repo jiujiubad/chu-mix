@@ -1,0 +1,8 @@
+<% if @posts.any? %>
+  var current_post_id = <%= @posts.last.id %>;
+  $("#post-list").append("<hr>")
+
+  <% @posts.each do |post| %>
+    $("#post-list").append("<%= j render partial: "post", locals: { post: post } %>");
+  <% end %>
+<% end %>
